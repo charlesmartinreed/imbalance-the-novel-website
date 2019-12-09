@@ -21,6 +21,10 @@ html {
 }
 
 body {
+  height: 200vh;
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
   display: grid;
   place-items: center;
   background: linear-gradient(
@@ -256,7 +260,7 @@ nav {
   display: grid;
   place-items: center;
   /* background-color: rgb(31, 28, 36); */
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
   position: relative;
 }
 
@@ -325,6 +329,7 @@ nav {
   border-radius: 50%;
   background-color: rgb(167, 167, 167);
   z-index: 999;
+  cursor: pointer;
 }
 
 #about__author .top-button::after {
