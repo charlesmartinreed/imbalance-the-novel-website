@@ -47,9 +47,6 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.card__body__blurb {
-}
-
 .card__body__quote,
 .card__body__quote__publication {
   transform: var(--rotate-middle);
@@ -95,7 +92,7 @@ body {
 .card__title {
   color: rgb(14, 100, 187);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 4rem;
+  font-size: 4.5rem;
   letter-spacing: 0.25rem;
   text-transform: uppercase;
   order: 2;
@@ -109,7 +106,7 @@ body {
   letter-spacing: 0.25rem;
   font-weight: 300;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   /* color: rgb(212, 212, 212); */
   opacity: 0.8;
 }
@@ -125,7 +122,7 @@ body {
   text-align: center;
   position: relative;
   padding: 18rem 5rem;
-  transition: transform 3s;
+  transition: transform 2s;
 
   /* this allows the child elements to actual transform independently of this parent */
   transform-style: preserve-3d;
@@ -152,6 +149,8 @@ body {
   /* this allows the child elements to actual transform independently of this parent */
   transform-style: preserve-3d;
   backface-visibility: hidden;
+
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5), -2px -2px 9px rgba(0, 0, 0, 0.5);
 }
 
 .card__front {
