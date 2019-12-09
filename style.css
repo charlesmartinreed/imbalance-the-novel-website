@@ -257,6 +257,7 @@ nav {
   place-items: center;
   /* background-color: rgb(31, 28, 36); */
   margin: 2rem 0;
+  position: relative;
 }
 
 #about__author img {
@@ -313,4 +314,25 @@ nav {
 
 #about__author .bio-card .card-icons a:hover {
   color: rgb(32, 32, 32);
+}
+
+#about__author .top-button {
+  position: absolute;
+  bottom: 1rem;
+  right: -2.5rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: rgb(167, 167, 167);
+  z-index: 999;
+}
+
+#about__author .top-button::after {
+  content: attr(data-up-arrow);
+  position: absolute;
+  color: rgb(22, 22, 22);
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
