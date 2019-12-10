@@ -17,14 +17,16 @@ html {
   --rotate-middle: translateZ(6rem);
   --rotate-top: translateZ(9rem);
 
+  --clr-soft-red: rgb(233, 85, 85);
+  --clr-soft-black: rgb(32, 32, 32);
+  --clr-soft-blue: rgb(14, 100, 187);
+  --clr-soft-white: rgb(236, 236, 236);
+
   scroll-behavior: smooth;
 }
 
 body {
-  height: 200vh;
   width: 100%;
-  overflow-x: hidden;
-  max-width: 100%;
   display: grid;
   place-items: center;
   background: linear-gradient(
@@ -49,6 +51,8 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  /* box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5), -2px -2px 9px rgba(0, 0, 0, 0.5); */
 }
 
 .nav-items {
@@ -58,11 +62,11 @@ nav {
 
 .nav-item a {
   display: block;
-  color: rgb(236, 236, 236);
+  color: var(--clr-soft-white);
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 800;
   text-transform: uppercase;
-  /* letter-spacing: 0.05rem; */
+  /* letter-spacing: 0.03rem; */
   font-size: 1.3rem;
   text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5);
 
@@ -71,21 +75,25 @@ nav {
 }
 
 .nav-item a::first-letter {
-  color: rgb(233, 85, 85);
+  color: var(--clr-soft-red);
   font-size: 1.4em;
-  margin-right: 0.03em;
-  font-weight: 500;
+  /* margin-right: 0.03em; */
+  font-weight: 900;
 }
 
 .nav-item a:hover {
-  border-bottom: 3px solid rgb(233, 85, 85);
+  border-bottom: 3px solid var(--clr-soft-red);
 }
 
 .main-container {
   display: grid;
   place-items: center;
-  gap: 2rem;
-  height: 93vh;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.main-container .button__purchase {
+  margin-top: -6rem;
 }
 
 /* CARD MARKUP */
@@ -113,11 +121,11 @@ nav {
   font-family: var(--ff-standard);
   font-weight: 300;
   letter-spacing: -0.05rem;
-  color: rgb(32, 32, 32);
+  color: var(--clr-soft-black);
 }
 
 .card__body__quote span {
-  color: rgb(233, 85, 85);
+  color: var(--clr-soft-red);
   font-size: 1.1em;
   /* padding: 0rem 0.3rem; */
   font-weight: 900;
@@ -142,11 +150,11 @@ nav {
 .card__body__quote__publication {
   letter-spacing: -0.08rem;
   font-weight: 500;
-  color: rgb(233, 85, 85);
+  color: var(--clr-soft-red);
 }
 
 .card__title {
-  color: rgb(14, 100, 187);
+  color: var(--clr-soft-blue);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 4.5rem;
   letter-spacing: 0.25rem;
@@ -171,7 +179,7 @@ nav {
   font-family: var(--ff-book);
   font-weight: 800;
   opacity: 1;
-  color: rgb(233, 85, 85);
+  color: var(--clr-soft-red);
 }
 
 .card__content {
@@ -213,7 +221,7 @@ nav {
   /* cover image courtesy of Johannes Rapprich @ Pexels - https://www.pexels.com/photo/close-up-of-shoreline-1387532/  */
   background-image: url(/assets/imbalance_cover.jpeg);
   background-size: cover;
-  color: rgb(32, 32, 32);
+  color: var(--clr-soft-black);
 }
 
 .card__front::before {
@@ -230,14 +238,14 @@ nav {
 .card__back {
   transform: rotateY(0.5turn);
 
-  background-color: rgb(236, 236, 236);
+  background-color: var(--clr-soft-white);
   backface-visibility: hidden;
 }
 
 /* PURCHASE STYLING */
 .button__purchase {
   background: seagreen;
-  color: rgb(236, 236, 236);
+  color: var(--clr-soft-white);
   padding: 1rem 5rem;
   border-radius: 4px;
   font-weight: 900;
@@ -256,12 +264,13 @@ nav {
 
 #about__author {
   height: 100vh;
-  width: 80%;
+  width: 100%;
   display: grid;
   place-items: center;
   /* background-color: rgb(31, 28, 36); */
   /* margin: 2rem 0; */
   position: relative;
+  padding: 0 2rem;
 }
 
 #about__author img {
@@ -271,9 +280,10 @@ nav {
 }
 
 #about__author h4 {
-  color: rgb(233, 85, 85);
-  font-size: 4rem;
+  color: var(--clr-soft-red);
+  font-size: 3.25rem;
   position: relative;
+  letter-spacing: 0.25rem;
 }
 
 #about__author h4::after {
@@ -284,11 +294,11 @@ nav {
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgb(14, 100, 187);
+  background: var(--clr-soft-blue);
 }
 
 #about__author p {
-  color: rgb(236, 236, 236);
+  color: var(--clr-soft-white);
   line-height: 2.3rem;
   letter-spacing: 0.15rem;
   font-weight: 400;
@@ -308,7 +318,7 @@ nav {
   padding: 1rem;
   font-size: 2.1rem;
   width: 200%;
-  color: rgb(14, 100, 187);
+  color: var(--clr-soft-blue);
 }
 
 #about__author .bio-card .card-icons a {
@@ -317,13 +327,13 @@ nav {
 }
 
 #about__author .bio-card .card-icons a:hover {
-  color: rgb(32, 32, 32);
+  color: var(--clr-soft-black);
 }
 
 #about__author .top-button {
   position: absolute;
-  bottom: 1rem;
-  right: -2.5rem;
+  bottom: 2%;
+  right: 2%;
   height: 40px;
   width: 40px;
   border-radius: 50%;
