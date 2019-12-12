@@ -46,7 +46,7 @@ nav {
   /* right: 0; */
   height: 7vh;
   width: 100%;
-  background: rgba(32, 32, 32, 1);
+  background: rgba(32, 32, 32, 0.5);
 
   display: flex;
   justify-content: flex-end;
@@ -64,21 +64,21 @@ nav {
   display: block;
   color: var(--clr-soft-white);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   /* letter-spacing: 0.03rem; */
   font-size: 1.3rem;
-  text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5);
+  /* text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); */
 
   transition: all 0.2s ease-in-out;
   padding-bottom: 0.15em;
 }
 
 .nav-item a::first-letter {
-  color: var(--clr-soft-red);
-  font-size: 1.4em;
+  /* color: var(--clr-soft-red); */
+  /* font-size: 1.4em; */
   /* margin-right: 0.03em; */
-  font-weight: 900;
+  /* font-weight: 900; */
 }
 
 .nav-item a:hover {
