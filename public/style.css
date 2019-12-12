@@ -62,15 +62,15 @@ nav {
 
 .nav-item a {
   display: block;
-  color: var(--clr-soft-white);
+  color: var(--clr-soft-black);
   text-decoration: none;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   /* letter-spacing: 0.03rem; */
   font-size: 1.3rem;
   /* text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); */
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s linear;
   padding-bottom: 0.15em;
 }
 
@@ -81,7 +81,8 @@ nav {
   /* font-weight: 900; */
 }
 
-.nav-item a:hover {
+.nav-item a:hover,
+.nav-item a:focus {
   border-bottom: 3px solid var(--clr-soft-red);
 }
 
@@ -326,7 +327,8 @@ nav {
   transition: color 0.3s ease-in-out;
 }
 
-#about__author .bio-card .card-icons a:hover {
+#about__author .bio-card .card-icons a:hover,
+#about__author .bio-card .card-icons a:focus {
   color: var(--clr-soft-black);
 }
 
