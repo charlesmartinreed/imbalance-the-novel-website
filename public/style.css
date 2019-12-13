@@ -39,6 +39,19 @@ body {
   font-family: var(--ff-standard);
 }
 
+#error-message {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  z-index: 1000;
+  transform: translateX(200px);
+  transition: transform 0.3s ease-in-out;
+}
+
+#error-message.active {
+  transform: translateX(-200px);
+}
+
 nav {
   /* position: absolute; */
   /* top: 0; */
@@ -220,7 +233,7 @@ nav {
 
 .card__front {
   /* cover image courtesy of Johannes Rapprich @ Pexels - https://www.pexels.com/photo/close-up-of-shoreline-1387532/  */
-  background-image: url(/assets/imbalance_cover.jpeg);
+  background-image: url(assets/imbalance_cover.jpeg);
   background-size: cover;
   color: var(--clr-soft-black);
 }

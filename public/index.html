@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <script defer src="https://js.stripe.com/v3/"></script>
-    <script defer src="script.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script defer src='script.js'></script>
     <title>Imbalance by Miri Ponce</title>
   </head>
   <body>
@@ -47,7 +47,11 @@
   </div>
 
   <!-- BUY NOW BUTTON -->
-  <div class="button button__purchase">Purchase</div>
+  <div class="button button__purchase" id="checkout-button-sku_GLjPsgXtCdAnEa"
+  role="link">Purchase Hardcover</div>
+
+  <!-- ERROR MESSAGE FROM STRIPE -->
+  <div id="error-message"></div>
     </div>
 
   <div id="about__author">
@@ -72,5 +76,42 @@
     
 
   </div>
+
+  <script>
+    (function() {
+  var stripe = Stripe('pk_test_ZL9HIqbaVPH1Op6slyV9DZjp00Vpv5ZT1O');
+
+  var checkoutButton = document.getElementById('checkout-button-sku_GLjPsgXtCdAnEa');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GLjPsgXtCdAnEa', quantity: 1}],
+
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'http://localhost:4500/success.html',
+      cancelUrl: 'http://localhost:4500/index.html',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+
+        displayError.classList.add('active');
+
+        setTimeout(() => {
+          displayError.classList.remove('active')
+        }, 2500)
+      }
+    });
+  });
+})();
+  </script>
   </body>
 </html>
