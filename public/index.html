@@ -47,8 +47,11 @@
   </div>
 
   <!-- BUY NOW BUTTON -->
-  <div class="button button__purchase" id="checkout-button-sku_GLjPsgXtCdAnEa"
-  role="link">Purchase Hardcover</div>
+      <div class="button button__purchase" id="checkout-button-sku_GLjPsgXtCdAnEa"
+      role="link">Buy Hardcover</div>
+      <div class="button button__purchase" id="checkout-button-sku_GLjQuTlW7LeZYY"
+      role="link">Buy Paperback</div>
+  
 
   <!-- ERROR MESSAGE FROM STRIPE -->
   <div id="error-message"></div>
@@ -81,12 +84,34 @@
     (function() {
   var stripe = Stripe('pk_test_ZL9HIqbaVPH1Op6slyV9DZjp00Vpv5ZT1O');
 
-  var checkoutButton = document.getElementById('checkout-button-sku_GLjPsgXtCdAnEa');
-  checkoutButton.addEventListener('click', function () {
+  var checkoutButtonHardcover = document.getElementById('checkout-button-sku_GLjPsgXtCdAnEa');
+  var checkoutButtonPaperback = document.getElementById('checkout-button-sku_GLjQuTlW7LeZYY');
+
+  checkoutButtonHardcover.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_GLjPsgXtCdAnEa', quantity: 1}],
+      successUrl: 'http://localhost:4500/success.html',
+      cancelUrl: 'http://localhost:4500/index.html',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+
+        displayError.classList.add('active');
+
+        setTimeout(() => {
+          displayError.classList.remove('active')
+        }, 2500)
+      }
+    });
+  });
+
+  checkoutButtonPaperback.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      items: [{sku: 'sku_GLjPsgXtCdAnEa', quantity: 1}],
+      items: [{sku: 'sku_GLjQuTlW7LeZYY', quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
@@ -98,8 +123,6 @@
     })
     .then(function (result) {
       if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
         var displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
 
